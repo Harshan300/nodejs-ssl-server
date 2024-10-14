@@ -23,3 +23,18 @@ jobs:
       - name: Push Docker image
         run: docker push harshan536/node-js-1
 
+  deploy:
+    needs: build-and-push
+    runs-on: self-hosted
+    steps:
+      - name: Login to docker hub
+        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Pull image from docker hub
+        run: docker pull harshan536/node-js-1
+      - name: Remove Exiting images
+        run: docker rm reverent_feistel
+      - name: Run docker container
+        run: docker run -d -p 3001:3000 --name node-app-container harshan536/node-js-1
+
+        
+
