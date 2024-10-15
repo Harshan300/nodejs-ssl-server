@@ -7,7 +7,7 @@ WORKDIR /app
 # copy the host files into container
 COPY . .
 
-# install dependencies
+# install dependencies wil be install
 RUN npm install
 
 # execute the commands
