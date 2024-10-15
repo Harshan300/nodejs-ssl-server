@@ -7,6 +7,7 @@ const version = '1.0.0';
 
 app.get('/', (req, res) => {
     // set response content    
+    <h1>It is added</h1>
         res.send(`<html>
                     <body>
                         <h1 style="color:blue;text-align: center;margin-top: 100px;"> [Version ${version}]: This is AMAZING!!! Like & Subscribe!</h1>
